@@ -17,6 +17,7 @@ export class Con extends Canvas {
 
   private _con: Object3D;
   private _mesh:Points | undefined;
+  private _ang:number = 0;
   private _val:number = 0;
   private _color:Array<Color> = [];
   private _imgSize:number = 256;
@@ -162,7 +163,8 @@ export class Con extends Canvas {
       this._setUni(this._mesh, 'size', 10)
 
       const ang = this._val + (this._rotCnt * 360);
-      this._setUni(this._mesh, 'ang', Util.instance.radian(ang))
+      this._ang += (ang - this._ang) * 0.1
+      this._setUni(this._mesh, 'ang', Util.instance.radian(this._ang))
     }
 
     if (this.isNowRenderFrame()) {
