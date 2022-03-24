@@ -57,7 +57,7 @@ export class Con extends Canvas {
               }
               if((this._oldAng - this._val) < -300) {
                 this._rotCnt--
-                this._rotCnt = Math.max(0, this._rotCnt)
+                // this._rotCnt = Math.max(0, this._rotCnt)
               }
 
             }, true)
@@ -160,7 +160,7 @@ export class Con extends Canvas {
       const s = Func.instance.r(3)
       this._mesh.scale.set(s, s, 1)
 
-      this._setUni(this._mesh, 'size', 10)
+      this._setUni(this._mesh, 'size', 15)
 
       const ang = this._val + (this._rotCnt * 360);
       this._ang += (ang - this._ang) * 0.1
