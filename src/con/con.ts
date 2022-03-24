@@ -50,9 +50,9 @@ export class Con extends Canvas {
               if((this._oldAng - this._val) > 300) {
                 this._rotCnt++
               }
-              // if((this._oldAng - this._val) < -300) {
-              //   this._rotCnt--
-              // }
+              if((this._oldAng - this._val) < -300) {
+                this._rotCnt--
+              }
 
             }, true)
             document.querySelector('.l-btn')?.classList.add('-none')
