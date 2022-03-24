@@ -47,9 +47,9 @@ export class Con extends Canvas {
               // const alpha = e.alpha
               Param.instance.debug.innerHTML = 'test ' + this._val
 
-              // if((this._oldAng - this._val) > 300) {
-              //   this._rotCnt++
-              // }
+              if((this._oldAng - this._val) > 300) {
+                this._rotCnt++
+              }
               // if((this._oldAng - this._val) < -300) {
               //   this._rotCnt--
               // }
