@@ -21,7 +21,7 @@ export class Con extends Canvas {
   private _color:Array<Color> = [];
   private _imgSize:number = 256;
   private _sample:Array<Vector3> = [];
-  private _oldAng:number = 0;
+  private _oldAng:number = -1;
   private _rotCnt:number = 0;
 
   constructor(opt: any) {
@@ -41,7 +41,11 @@ export class Con extends Canvas {
         (window.DeviceOrientationEvent as any).requestPermission().then((r:any) => {
           if(r == 'granted') {
             window.addEventListener('deviceorientation', (e:DeviceOrientationEvent) => {
-              this._oldAng = this._val
+              if(this._oldAng != -1) {
+                this._oldAng = this._val
+              } else {
+                this._oldAng = Number(e.alpha)
+              }
               this._val = Number(e.alpha)
 
               // const alpha = e.alpha
@@ -52,6 +56,7 @@ export class Con extends Canvas {
               }
               if((this._oldAng - this._val) < -300) {
                 this._rotCnt--
+                this._rotCnt = Math.max(0, this._rotCnt)
               }
 
             }, true)
